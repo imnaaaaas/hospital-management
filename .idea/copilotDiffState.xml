@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CopilotDiffPersistence">
+    <option name="pendingDiffs">
+      <map>
+        <entry key="$PROJECT_DIR$/hospital/src/main/java/ge/ibsu/hospital/entities/enums/AppointmentStatus.java">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/hospital/src/main/java/ge/ibsu/hospital/entities/enums/AppointmentStatus.java" />
+              <option name="updatedContent" value="package ge.ibsu.hospital.entities.enums;&#10;&#10;public enum AppointmentStatus {&#10;    PENDING,&#10;    APPROVED,&#10;    CANCELLED,&#10;    COMPLETED&#10;}&#10;" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/hospital/src/main/java/ge/ibsu/hospital/entities/enums/BloodType.java">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/hospital/src/main/java/ge/ibsu/hospital/entities/enums/BloodType.java" />
+              <option name="updatedContent" value="package ge.ibsu.hospital.entities.enums;&#10;&#10;public enum BloodType {&#10;    A_POSITIVE,&#10;    A_NEGATIVE,&#10;    B_POSITIVE,&#10;    B_NEGATIVE,&#10;    O_POSITIVE,&#10;    O_NEGATIVE,&#10;    AB_POSITIVE,&#10;    AB_NEGATIVE&#10;}&#10;" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/hospital/src/main/java/ge/ibsu/hospital/entities/enums/Gender.java">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/hospital/src/main/java/ge/ibsu/hospital/entities/enums/Gender.java" />
+              <option name="updatedContent" value="package ge.ibsu.hospital.entities.enums;&#10;&#10;public enum Gender {&#10;    MALE,&#10;    FEMALE&#10;}&#10;" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/hospital/src/main/java/ge/ibsu/hospital/entities/enums/Role.java">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/hospital/src/main/java/ge/ibsu/hospital/entities/enums/Role.java" />
+              <option name="updatedContent" value="package ge.ibsu.hospital.entities.enums;&#10;&#10;public enum Role {&#10;    ADMIN,&#10;    DOCTOR,&#10;    PATIENT,&#10;    RECEPTIONIST&#10;}&#10;" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
