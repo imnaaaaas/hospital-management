@@ -1,4 +1,4 @@
-package ge.ibsu.hospital.entities.enums;
+package ge.ibsu.hospital.enums;
 
 public enum BloodType {
     A_POSITIVE,

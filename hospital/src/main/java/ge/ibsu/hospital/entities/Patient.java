@@ -1,7 +1,7 @@
 package ge.ibsu.hospital.entities;
 
-import ge.ibsu.hospital.entities.enums.BloodType;
-import ge.ibsu.hospital.entities.enums.Gender;
+import ge.ibsu.hospital.enums.BloodType;
+import ge.ibsu.hospital.enums.Gender;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

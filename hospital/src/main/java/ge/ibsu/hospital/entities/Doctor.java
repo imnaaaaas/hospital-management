@@ -1,6 +1,6 @@
 package ge.ibsu.hospital.entities;
 
-import ge.ibsu.hospital.entities.enums.Specialization;
+import ge.ibsu.hospital.enums.Specialization;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

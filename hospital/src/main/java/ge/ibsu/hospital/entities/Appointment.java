@@ -1,6 +1,6 @@
 package ge.ibsu.hospital.entities;
 
-import ge.ibsu.hospital.entities.enums.AppointmentStatus;
+import ge.ibsu.hospital.enums.AppointmentStatus;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
