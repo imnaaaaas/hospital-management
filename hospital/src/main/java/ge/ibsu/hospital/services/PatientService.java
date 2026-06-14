@@ -37,8 +37,8 @@ public class PatientService {
                     if (patient.getEmail() != null) {
                         existingPatient.setEmail(patient.getEmail());
                     }
-                    if (patient.getPhoneNumber() != null) {
-                        existingPatient.setPhoneNumber(patient.getPhoneNumber());
+                    if (patient.getPhone() != null) {
+                        existingPatient.setPhone(patient.getPhone());
                     }
                     if (patient.getDateOfBirth() != null) {
                         existingPatient.setDateOfBirth(patient.getDateOfBirth());
