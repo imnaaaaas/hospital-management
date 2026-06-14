@@ -24,4 +24,3 @@ public class Department {
     @Column(columnDefinition = "TEXT")
     private String description;
 }
-

@@ -40,4 +40,3 @@ public class Prescription {
     @Column
     private LocalDate prescribedDate;
 }
-

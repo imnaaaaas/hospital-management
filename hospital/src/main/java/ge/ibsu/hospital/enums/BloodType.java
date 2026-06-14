@@ -10,4 +10,3 @@ public enum BloodType {
     AB_POSITIVE,
     AB_NEGATIVE
 }
-

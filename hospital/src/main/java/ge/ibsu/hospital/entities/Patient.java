@@ -46,4 +46,3 @@ public class Patient {
     @Column(columnDefinition = "TEXT")
     private String address;
 }
-

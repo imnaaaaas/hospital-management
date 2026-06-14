@@ -38,4 +38,3 @@ public class Doctor {
     @JoinColumn(name = "department_id")
     private Department department;
 }
-
