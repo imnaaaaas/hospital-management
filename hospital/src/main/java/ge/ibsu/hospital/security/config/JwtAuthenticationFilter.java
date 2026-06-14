@@ -1,4 +1,4 @@
-package ge.ibsu.hospital.security;
+package ge.ibsu.hospital.security.config;
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
@@ -6,6 +6,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -17,6 +18,7 @@ import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
 
+@Slf4j
 @Component
 @RequiredArgsConstructor
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
@@ -32,27 +34,27 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         final String jwt;
         final String userEmail;
 
-        // If the Authorization header is missing or doesn't start with "Bearer ", skip JWT processing
+
         if (authHeader == null || !authHeader.startsWith("Bearer ")) {
             filterChain.doFilter(request, response);
             return;
         }
 
-        // Extract JWT token from Authorization header (skip "Bearer " prefix)
+
         jwt = authHeader.substring(7);
 
         try {
-            // Extract username from token
+
             userEmail = jwtService.extractUsername(jwt);
 
-            // If username is extracted and no authentication is currently set
+
             if (userEmail != null && SecurityContextHolder.getContext().getAuthentication() == null) {
                 // Load user details
                 UserDetails userDetails = userDetailsService.loadUserByUsername(userEmail);
 
-                // Validate token
+
                 if (jwtService.isTokenValid(jwt, userDetails)) {
-                    // Create authentication token
+
                     UsernamePasswordAuthenticationToken authToken =
                             new UsernamePasswordAuthenticationToken(
                                     userDetails,
@@ -60,7 +62,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                                     userDetails.getAuthorities()
                             );
 
-                    // Set additional details
+
                     authToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
 
                     // Set authentication in security context
@@ -70,11 +72,10 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                 }
             }
         } catch (Exception e) {
-            // Log the exception if needed
-            logger.error("Cannot set user authentication: {}", e.getMessage());
+
+            log.error("Cannot set user authentication: {}", e.getMessage());
         }
 
         filterChain.doFilter(request, response);
     }
 }
-

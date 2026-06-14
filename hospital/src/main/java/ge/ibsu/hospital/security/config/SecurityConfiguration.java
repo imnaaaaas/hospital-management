@@ -1,6 +1,5 @@
 package ge.ibsu.hospital.security.config;
 
-import ge.ibsu.hospital.security.JwtAuthenticationFilter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
