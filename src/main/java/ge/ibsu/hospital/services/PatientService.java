@@ -3,9 +3,10 @@ package ge.ibsu.hospital.services;
 import ge.ibsu.hospital.entities.Patient;
 import ge.ibsu.hospital.repositories.PatientRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -13,8 +14,8 @@ import java.util.Optional;
 public class PatientService {
     private final PatientRepository patientRepository;
 
-    public List<Patient> getAllPatients() {
-        return patientRepository.findAll();
+    public Page<Patient> getAllPatients(Pageable pageable) {
+        return patientRepository.findAll(pageable);
     }
 
     public Optional<Patient> getPatientById(Long id) {

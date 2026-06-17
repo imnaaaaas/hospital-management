@@ -4,6 +4,7 @@ import ge.ibsu.hospital.security.dto.AuthenticationResponse;
 import ge.ibsu.hospital.security.dto.LoginData;
 import ge.ibsu.hospital.security.dto.RegistrationRequest;
 import ge.ibsu.hospital.security.services.UserService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,12 +19,12 @@ public class UserController {
     private final UserService userService;
 
     @PostMapping("/register")
-    public ResponseEntity<AuthenticationResponse> register(@RequestBody RegistrationRequest request) {
+    public ResponseEntity<AuthenticationResponse> register(@Valid @RequestBody RegistrationRequest request) {
         return ResponseEntity.ok(userService.register(request));
     }
 
     @PostMapping("/login")
-    public ResponseEntity<AuthenticationResponse> login(@RequestBody LoginData request) {
+    public ResponseEntity<AuthenticationResponse> login(@Valid @RequestBody LoginData request) {
         return ResponseEntity.ok(userService.login(request));
     }
 }

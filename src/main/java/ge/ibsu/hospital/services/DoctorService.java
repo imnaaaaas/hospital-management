@@ -3,6 +3,8 @@ package ge.ibsu.hospital.services;
 import ge.ibsu.hospital.entities.Doctor;
 import ge.ibsu.hospital.repositories.DoctorRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,8 +15,8 @@ import java.util.Optional;
 public class DoctorService {
     private final DoctorRepository doctorRepository;
 
-    public List<Doctor> getAllDoctors() {
-        return doctorRepository.findAll();
+    public Page<Doctor> getAllDoctors(Pageable pageable) {
+        return doctorRepository.findAll(pageable);
     }
 
     public Optional<Doctor> getDoctorById(Long id) {

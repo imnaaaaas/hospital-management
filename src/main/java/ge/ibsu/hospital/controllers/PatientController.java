@@ -3,11 +3,12 @@ package ge.ibsu.hospital.controllers;
 import ge.ibsu.hospital.entities.Patient;
 import ge.ibsu.hospital.services.PatientService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
@@ -16,8 +17,11 @@ public class PatientController {
     private final PatientService patientService;
 
     @GetMapping
-    public ResponseEntity<List<Patient>> getAll() {
-        return ResponseEntity.ok(patientService.getAllPatients());
+    public ResponseEntity<Page<Patient>> getAll(
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "10") int size) {
+        Pageable pageable = PageRequest.of(page, size);
+        return ResponseEntity.ok(patientService.getAllPatients(pageable));
     }
 
     @GetMapping("/{id}")

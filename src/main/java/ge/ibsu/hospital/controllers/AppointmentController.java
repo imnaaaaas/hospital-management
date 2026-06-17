@@ -4,6 +4,9 @@ import ge.ibsu.hospital.entities.Appointment;
 import ge.ibsu.hospital.enums.AppointmentStatus;
 import ge.ibsu.hospital.services.AppointmentService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -17,8 +20,11 @@ public class AppointmentController {
     private final AppointmentService appointmentService;
 
     @GetMapping
-    public ResponseEntity<List<Appointment>> getAll() {
-        return ResponseEntity.ok(appointmentService.getAllAppointments());
+    public ResponseEntity<Page<Appointment>> getAll(
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "10") int size) {
+        Pageable pageable = PageRequest.of(page, size);
+        return ResponseEntity.ok(appointmentService.getAllAppointments(pageable));
     }
 
     @GetMapping("/{id}")

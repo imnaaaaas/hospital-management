@@ -3,6 +3,9 @@ package ge.ibsu.hospital.controllers;
 import ge.ibsu.hospital.entities.Doctor;
 import ge.ibsu.hospital.services.DoctorService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,8 +19,11 @@ public class DoctorController {
     private final DoctorService doctorService;
 
     @GetMapping
-    public ResponseEntity<List<Doctor>> getAll() {
-        return ResponseEntity.ok(doctorService.getAllDoctors());
+    public ResponseEntity<Page<Doctor>> getAll(
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "10") int size) {
+        Pageable pageable = PageRequest.of(page, size);
+        return ResponseEntity.ok(doctorService.getAllDoctors(pageable));
     }
 
     @GetMapping("/{id}")
