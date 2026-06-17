@@ -41,8 +41,8 @@ public class DoctorService {
                     if (doctor.getEmail() != null) {
                         existingDoctor.setEmail(doctor.getEmail());
                     }
-                    if (doctor.getPhoneNumber() != null) {
-                        existingDoctor.setPhoneNumber(doctor.getPhoneNumber());
+                    if (doctor.getPhone() != null) {
+                        existingDoctor.setPhone(doctor.getPhone());
                     }
                     if (doctor.getSpecialization() != null) {
                         existingDoctor.setSpecialization(doctor.getSpecialization());
